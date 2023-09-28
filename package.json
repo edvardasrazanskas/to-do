@@ -1,0 +1,23 @@
+{
+  "name": "to-do",
+  "version": "1.0.0",
+  "description": "A simple website made to create and complete to-do lists using javascript html and css",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edvardasrazanskas/to-do-javascript.git"
+  },
+  "author": "Edvardas R",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edvardasrazanskas/to-do-javascript/issues"
+  },
+  "homepage": "https://github.com/edvardasrazanskas/to-do-javascript#readme",
+  "devDependencies": {
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}
