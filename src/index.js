@@ -7,14 +7,17 @@ const showUncompletedBtn = document.getElementById("showUncompletedTodos");
 let id = 0;
 
 showAllBtn.addEventListener("click", function () {
+    makeThisButtonActive(showAllBtn);
     showAllTodos();
 });
 
 showCompletedBtn.addEventListener("click", function () {
+    makeThisButtonActive(showCompletedBtn);
     showCompletedTodos();
 });
 
 showUncompletedBtn.addEventListener("click", function () {
+    makeThisButtonActive(showUncompletedBtn);
     showUncompletedTodos();
 });
 
@@ -34,20 +37,26 @@ const TodoItem = (id, name, description, dueDate, priority, completed) => {
 };
 
 function addTodo (name, description, dueDate, priority, completed) {
+    alert("New task was created!");
     todoList.push(TodoItem(id, name, description, dueDate, priority, completed));
     id += 1;
     sortTodos();
     showAllTodos();
 };
 
-// mark task as completed
+
+function makeThisButtonActive(curbutton) {
+    const buttons = document.querySelectorAll(".showtodoBtn");
+    buttons.forEach((button) => {
+        button.classList.remove("active");
+    });
+    curbutton.classList.add("active");
+};
 function changeTodoState(id) {
     const todo = todoList.find((todo) => todo.id === id);
     todo.completed = !todo.completed;
     showUncompletedTodos();
 };
-
-// function to sort todos by due date and priority
 function sortTodos() {
     todoList.sort((a, b) => {
         if (a.dueDate > b.dueDate) return 1;
@@ -132,6 +141,7 @@ function printTodo (todo, ul) {
         const index = todoList.findIndex((todo) => todo.id === todo.id);
         todoList.splice(index, 1);
         showAllTodos();
+        alert("You deleted task named: " + todo.name);
     });
 
     container.appendChild(checkbox);
@@ -148,4 +158,3 @@ function printTodo (todo, ul) {
 
 
 addTodo("ZERO", "There is a lot of description to do here", "2021-03-01", 0, false);
-addTodo("TWO TWO TWO TWO", "There is a lot of description to do here There is a lot of description to do here", "2021-03-01", 2, false);
